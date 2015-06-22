@@ -20,7 +20,6 @@ namespace ClientForm
             CtlDict.Add(Event.Step.StepEnum.SIGNIN, typeof(SignInCom));
             CtlDict.Add(Event.Step.StepEnum.TEST, typeof(MoodTest));
             CtlDict.Add(Event.Step.StepEnum.USERINFO, typeof(UserInfo));
-            CtlDict.Add(Event.Step.StepEnum.MASSAGE, typeof(Massage));
 
             Event.Step.StepDone += new Event.Step.StepDoneHandler(StepHandler);
             Event.Step.StepDone += new Event.Step.StepDoneHandler(DownZero);
@@ -69,7 +68,7 @@ namespace ClientForm
 
         private void LoopNext()
         {
-            if (Event.Step.LoopIndex > 12)
+            if (Event.Step.LoopIndex > 2)
             {
                 Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.USERINFO);
                 Event.Step.OnStepDone(this, sdea);

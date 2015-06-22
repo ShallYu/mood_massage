@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace massage
+namespace ClientForm
 {
     class Music
     {

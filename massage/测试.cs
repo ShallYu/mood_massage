@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace massage{
+namespace ClientForm
 {
     public partial class 测试 : UserControl
     {

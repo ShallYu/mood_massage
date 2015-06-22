@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace massage
+namespace ClientForm
 {
     static class Program
     {

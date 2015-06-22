@@ -1,4 +1,4 @@
-﻿namespace massage{
+﻿namespace ClientForm{
 
     partial class MoodVector
     {

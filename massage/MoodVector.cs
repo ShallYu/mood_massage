@@ -6,7 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
-namespace massage{
+namespace ClientForm
 {
     public partial class MoodVector : UserControl
     {
