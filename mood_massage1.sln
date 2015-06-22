@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qPaperParser", "qPaperParse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncTest", "AsyncTest\AsyncTest.csproj", "{8F810F65-DA83-4759-A704-5ADE411C8AFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "massage", "massage\massage.csproj", "{78715DF6-8164-4E3D-858C-C4191D8353BC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{A34F2721-7C3D-42D2-A0E2-1DA8C165FD3D}"
 EndProject
 Global
@@ -59,16 +57,6 @@ Global
 		{8F810F65-DA83-4759-A704-5ADE411C8AFB}.Release|Mixed Platforms.Build.0 = Release|x86
 		{8F810F65-DA83-4759-A704-5ADE411C8AFB}.Release|x86.ActiveCfg = Release|x86
 		{8F810F65-DA83-4759-A704-5ADE411C8AFB}.Release|x86.Build.0 = Release|x86
-		{78715DF6-8164-4E3D-858C-C4191D8353BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78715DF6-8164-4E3D-858C-C4191D8353BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78715DF6-8164-4E3D-858C-C4191D8353BC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{78715DF6-8164-4E3D-858C-C4191D8353BC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{78715DF6-8164-4E3D-858C-C4191D8353BC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{78715DF6-8164-4E3D-858C-C4191D8353BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78715DF6-8164-4E3D-858C-C4191D8353BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78715DF6-8164-4E3D-858C-C4191D8353BC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{78715DF6-8164-4E3D-858C-C4191D8353BC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{78715DF6-8164-4E3D-858C-C4191D8353BC}.Release|x86.ActiveCfg = Release|Any CPU
 		{A34F2721-7C3D-42D2-A0E2-1DA8C165FD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A34F2721-7C3D-42D2-A0E2-1DA8C165FD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A34F2721-7C3D-42D2-A0E2-1DA8C165FD3D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
