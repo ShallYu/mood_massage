@@ -1,0 +1,7 @@
+﻿<Window x:Class="mood_massage1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" ResizeMode="CanMinimize" WindowState="Maximized" Opacity="0.8" Visibility="Visible" WindowStyle="None" Width="960">
+    <Border  Name="Border1" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
+
+</Window>
