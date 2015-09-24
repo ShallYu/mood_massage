@@ -18,6 +18,10 @@ namespace ClientForm
     {
         dataSimulator s1 = new dataSimulator();
         FFT fft = new FFT();
+        Object o;
+        double[] alpha_list = new double[140];
+        int index = 0;
+        Graphics panel_g;
 
         SerialPort sp = null;
         Parser parser = new Parser();
@@ -93,10 +97,44 @@ namespace ClientForm
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
             SetStyle(ControlStyles.DoubleBuffer, true); // 双缓冲
-            spInit();
-            this.BackColor = Color.Black;
-            timer1.Start();
+            panelBGDraw();
+            panel_g = panel1.CreateGraphics();
+            for (int i = 0; i < alpha_list.Length; i++)
+            {
+                alpha_list[i] = 0.0;
+            }
+                //spInit();
+                this.BackColor = Color.Black;
+            Event.dataRcvd.Received += dataRcvd_Received;
+            
+        }
 
+        private void panelBGDraw()
+        {
+            Bitmap panelBG = new Bitmap(panel1.Width, panel1.Height);
+            Graphics g = Graphics.FromImage(panelBG);
+            g.FillRectangle(Brushes.Black, new Rectangle(0, 0, this.Width, this.Height));
+            DrawGrid(g);
+            panel1.BackgroundImage = panelBG;
+        }
+
+        void dataRcvd_Received(object serder, Event.dataRcvdEventArgs Args)
+        {
+            o = (double[,])Args.data;
+            if (o != null)
+            {
+                double[,] a = (double[,])o;
+                double alpha = fft.get_now_alpha(a, Args.length, 27);
+                alpha_list[index] = alpha;
+                if(index <alpha_list.Length-1){
+                    index +=1;
+                }
+                else{
+                    index = 0;
+                }
+                label1.Text = String.Format("{0},", alpha);
+            }
+            DrawArray(panel_g, alpha_list);
             
         }
 
@@ -117,33 +155,22 @@ namespace ClientForm
 
         }
 
-        private void DrawArray(Graphics g,float[,] arr)
+        private void DrawArray(Graphics g,double[] arr)
         {
             g.SmoothingMode = SmoothingMode.HighQuality; //高质量
             g.PixelOffsetMode = PixelOffsetMode.HighQuality; //高像素偏移质量
-            Pen wavePen = new Pen(Color.Yellow);
+            Pen wavePen = new Pen(Color.Cyan);
             GraphicsPath gPath1 = new GraphicsPath();
-            Point[] p1 = new Point[arr.Length/32];
+            Point[] p1 = new Point[arr.Length];
             for (int i = 0; i < arr.Length; i++)
             {
-                p1[i].X = i;
-                p1[i].Y = (int)arr[1,i];
+                p1[i].X = i*panel1.Width/arr.Length;
+                p1[i].Y = panel1.Height-(int)(arr[i]*panel1.Height/36);
             }
+            label1.Text += String.Format("{0}", panel1.Height - (int)(arr[index] * panel1.Height / 36));
             gPath1.AddCurve(p1);
             g.DrawPath(wavePen, gPath1);
 
-        }
-
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            Bitmap panelBG = new Bitmap(panel1.Width, panel1.Height);
-            Graphics g = Graphics.FromImage(panelBG);
-            g.FillRectangle(Brushes.Black, new Rectangle(0, 0, this.Width, this.Height));
-            DrawGrid(g);
-            //DrawArray(g,s1.ReadData(this.Width));
-            panel1.BackgroundImage = panelBG;
-        
         }
     }
 }

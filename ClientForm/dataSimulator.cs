@@ -10,7 +10,7 @@ namespace ClientForm
     {
 
         private Timer timer = new Timer();
-        private int length = 900;
+        private int length = 2000;
         private FileStream f1;
         private StreamReader sr1;
         private bool is_connected = false;

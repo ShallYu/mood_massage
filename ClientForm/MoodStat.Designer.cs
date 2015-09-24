@@ -34,10 +34,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(196, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 31);
+            this.panel1.Size = new System.Drawing.Size(54, 125);
             this.panel1.TabIndex = 0;
             // 
             // MoodStat
@@ -47,7 +47,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.panel1);
             this.Name = "MoodStat";
-            this.Size = new System.Drawing.Size(396, 31);
+            this.Size = new System.Drawing.Size(54, 211);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MoodStat_Paint);
             this.ResumeLayout(false);
 

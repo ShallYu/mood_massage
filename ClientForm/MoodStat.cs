@@ -15,7 +15,6 @@ namespace ClientForm
         FFT fft1 = new FFT();
         dataSimulator ds1 = new dataSimulator();
         Object o;
-        int length = 900;
         public MoodStat()
         {
             InitializeComponent();
@@ -29,8 +28,8 @@ namespace ClientForm
             if (o != null)
             {
                 double[,] a = (double[,])o;
-                double alpha = fft1.get_now_alpha(a, length, 27);
-                panel1.Width = (int)(this.Width * Math.Abs(12 - alpha) / 12);
+                double alpha = fft1.get_now_alpha(a, Args.length, 27);
+                panel1.Height = (int)(this.Height * Math.Abs(Args.total - alpha) / Args.total);
             }
         }
 

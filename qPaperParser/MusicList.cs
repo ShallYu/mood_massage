@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 
 
-namespace ClientForm
+namespace CodeTemp
 {
     static class MusicList
     {
