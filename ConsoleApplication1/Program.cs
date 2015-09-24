@@ -13,9 +13,14 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             //dataSimulatorTest();
-            FFTTest();
+            Console.WriteLine(MusicTest());
 
             Console.Read();
+        }
+
+        static string MusicTest(){
+            return MusicList.getMusic().ToString();
+
         }
 
         static private void FFTTest()

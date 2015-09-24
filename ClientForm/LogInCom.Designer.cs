@@ -44,11 +44,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.pwdBox);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.logInButton);
@@ -65,15 +69,16 @@
             this.panel1.Controls.Add(this.nameBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 240);
+            this.panel1.Size = new System.Drawing.Size(492, 283);
             this.panel1.TabIndex = 0;
             // 
             // pwdBox
             // 
             this.pwdBox.Font = new System.Drawing.Font("宋体", 12F);
-            this.pwdBox.Location = new System.Drawing.Point(113, 183);
+            this.pwdBox.Location = new System.Drawing.Point(107, 225);
             this.pwdBox.Name = "pwdBox";
             this.pwdBox.Size = new System.Drawing.Size(183, 26);
             this.pwdBox.TabIndex = 15;
@@ -81,16 +86,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("宋体", 12F);
-            this.label7.Location = new System.Drawing.Point(41, 186);
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(35, 228);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 16);
+            this.label7.Size = new System.Drawing.Size(42, 21);
             this.label7.TabIndex = 14;
             this.label7.Text = "密码";
             // 
             // logInButton
             // 
-            this.logInButton.Location = new System.Drawing.Point(336, 182);
+            this.logInButton.Location = new System.Drawing.Point(330, 224);
             this.logInButton.Name = "logInButton";
             this.logInButton.Size = new System.Drawing.Size(94, 28);
             this.logInButton.TabIndex = 13;
@@ -104,15 +109,15 @@
             this.genderBox.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.genderBox.Location = new System.Drawing.Point(336, 30);
+            this.genderBox.Location = new System.Drawing.Point(330, 72);
             this.genderBox.Name = "genderBox";
-            this.genderBox.Size = new System.Drawing.Size(56, 20);
+            this.genderBox.Size = new System.Drawing.Size(56, 25);
             this.genderBox.TabIndex = 12;
             // 
             // likeBox
             // 
             this.likeBox.Font = new System.Drawing.Font("宋体", 12F);
-            this.likeBox.Location = new System.Drawing.Point(336, 134);
+            this.likeBox.Location = new System.Drawing.Point(330, 176);
             this.likeBox.Name = "likeBox";
             this.likeBox.Size = new System.Drawing.Size(101, 26);
             this.likeBox.TabIndex = 11;
@@ -120,17 +125,17 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("宋体", 12F);
-            this.label6.Location = new System.Drawing.Point(256, 138);
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(250, 180);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 16);
+            this.label6.Size = new System.Drawing.Size(42, 21);
             this.label6.TabIndex = 10;
             this.label6.Text = "兴趣";
             // 
             // userNameBox
             // 
             this.userNameBox.Font = new System.Drawing.Font("宋体", 12F);
-            this.userNameBox.Location = new System.Drawing.Point(113, 135);
+            this.userNameBox.Location = new System.Drawing.Point(107, 177);
             this.userNameBox.Name = "userNameBox";
             this.userNameBox.Size = new System.Drawing.Size(101, 26);
             this.userNameBox.TabIndex = 9;
@@ -138,17 +143,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("宋体", 12F);
-            this.label5.Location = new System.Drawing.Point(41, 138);
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(35, 180);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 16);
+            this.label5.Size = new System.Drawing.Size(42, 21);
             this.label5.TabIndex = 8;
             this.label5.Text = "账号";
             // 
             // collegeBox
             // 
             this.collegeBox.Font = new System.Drawing.Font("宋体", 12F);
-            this.collegeBox.Location = new System.Drawing.Point(336, 81);
+            this.collegeBox.Location = new System.Drawing.Point(330, 123);
             this.collegeBox.Name = "collegeBox";
             this.collegeBox.Size = new System.Drawing.Size(101, 26);
             this.collegeBox.TabIndex = 7;
@@ -156,17 +161,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("宋体", 12F);
-            this.label4.Location = new System.Drawing.Point(256, 85);
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(250, 127);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 16);
+            this.label4.Size = new System.Drawing.Size(42, 21);
             this.label4.TabIndex = 6;
             this.label4.Text = "学院";
             // 
             // ageBox
             // 
             this.ageBox.Font = new System.Drawing.Font("宋体", 12F);
-            this.ageBox.Location = new System.Drawing.Point(113, 82);
+            this.ageBox.Location = new System.Drawing.Point(107, 124);
             this.ageBox.Name = "ageBox";
             this.ageBox.Size = new System.Drawing.Size(44, 26);
             this.ageBox.TabIndex = 5;
@@ -174,27 +179,27 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 12F);
-            this.label3.Location = new System.Drawing.Point(41, 85);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(35, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 16);
+            this.label3.Size = new System.Drawing.Size(42, 21);
             this.label3.TabIndex = 4;
             this.label3.Text = "年龄";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 12F);
-            this.label2.Location = new System.Drawing.Point(256, 34);
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(250, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 16);
+            this.label2.Size = new System.Drawing.Size(42, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "性别";
             // 
             // nameBox
             // 
             this.nameBox.Font = new System.Drawing.Font("宋体", 12F);
-            this.nameBox.Location = new System.Drawing.Point(113, 31);
+            this.nameBox.Location = new System.Drawing.Point(107, 73);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(101, 26);
             this.nameBox.TabIndex = 1;
@@ -202,12 +207,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F);
-            this.label1.Location = new System.Drawing.Point(41, 34);
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(35, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 16);
+            this.label1.Size = new System.Drawing.Size(42, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "姓名";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(188, 17);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(102, 28);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "注        册";
             // 
             // LogInCom
             // 
@@ -215,7 +230,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "LogInCom";
-            this.Size = new System.Drawing.Size(492, 240);
+            this.Size = new System.Drawing.Size(492, 283);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -240,6 +255,7 @@
         private System.Windows.Forms.Button logInButton;
         private System.Windows.Forms.TextBox pwdBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
 
     }
 }

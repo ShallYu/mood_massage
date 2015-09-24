@@ -16,7 +16,7 @@ namespace ClientForm
             InitializeComponent();
             //ShowInit();
             CtlDict.Add(Event.Step.StepEnum.LOGIN, typeof(LogInCom));
-            CtlDict.Add(Event.Step.StepEnum.QPAPER, typeof(qPaper));
+            CtlDict.Add(Event.Step.StepEnum.QPAPER, typeof(UserRef));
             CtlDict.Add(Event.Step.StepEnum.SIGNIN, typeof(SignInCom));
             CtlDict.Add(Event.Step.StepEnum.TEST, typeof(MoodTest));
             CtlDict.Add(Event.Step.StepEnum.USERINFO, typeof(UserInfo));
@@ -62,13 +62,13 @@ namespace ClientForm
         private void setMiddle(Control ctl)
         {
             ctl.Left = (this.Width - ctl.Width) / 2;
-            ctl.Top = (this.Height - ctl.Height) / 2;
+            ctl.Top = (this.Height - ctl.Height) / 5;
         }
 
 
         private void LoopNext()
         {
-            if (Event.Step.LoopIndex > 2)
+            if (Event.Step.LoopIndex >= 3)
             {
                 Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.USERINFO);
                 Event.Step.OnStepDone(this, sdea);

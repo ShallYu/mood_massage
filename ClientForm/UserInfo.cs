@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-
 using System.Text;
-
 using System.Windows.Forms;
 
 namespace ClientForm
@@ -19,8 +17,27 @@ namespace ClientForm
 
         private void TestBtn_Click(object sender, EventArgs e)
         {
-            Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.NEXT);
-            Event.Step.OnStepDone(this, sdea);
+            try
+            {
+                if (moodBox.SelectedItem.ToString() != "" && moodBox.SelectedItem.ToString() != null)
+                {
+
+                    MusicList.setType(moodBox.SelectedItem.ToString());
+                    Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.TEST);
+                    Event.Step.OnStepDone(this, sdea);
+                }
+                else
+                {
+                    MessageBox.Show("请选择测试情绪。");
+                }
+            }
+            catch(Exception arg)
+            {
+
+                MessageBox.Show("音乐打开出错");
+            }
+
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -34,11 +51,9 @@ namespace ClientForm
             this.nameBox.Text = CurrentUser.currentUser["Name"].ToString() ;
             this.genderBox.Text = CurrentUser.currentUser["Gender"].ToString();
             this.ageBox.Text = CurrentUser.currentUser["Age"].ToString();
-            this.testTimeLabel.Text = CurrentUser.currentUser["TestTime"].ToString();
             this.likeBox.Text = CurrentUser.currentUser["Like"].ToString();
             this.pwdBox.Text = CurrentUser.currentUser["Password"].ToString();
             this.collegeBox.Text = CurrentUser.currentUser["College"].ToString();
-            this.testTimeLabel.Text = CurrentUser.currentUser["TestTime"].ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)

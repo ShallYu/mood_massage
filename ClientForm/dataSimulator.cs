@@ -7,8 +7,17 @@ namespace ClientForm
 {
     public class dataSimulator
     {
+      
         FileStream f1;
         StreamReader sr1;
+        private bool is_connected = false;
+        public bool isConnected
+        {
+            get
+            {
+                return is_connected;
+            }
+        }
         public dataSimulator()
         {
         }
@@ -18,6 +27,7 @@ namespace ClientForm
             try
             {
                 sr1 = new StreamReader(@"E:\Creating\EEG\matlab\2\" + filename + ".mat");
+                is_connected = true;
             }
             catch (IOException e)
             {
@@ -30,6 +40,7 @@ namespace ClientForm
             {
                 //f1.Close();
                 sr1.Close();
+                is_connected = false;
             }
             finally
             {
@@ -46,6 +57,12 @@ namespace ClientForm
                     DataFit(ref data, dat_string, i);
                 }
                 return data;
+            }
+            catch (EndOfStreamException e)
+            {
+                this.DisConnect();
+                this.Connect("fh02");
+                return null;
             }
             catch(Exception e)
             {

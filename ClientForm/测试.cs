@@ -6,25 +6,46 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace ClientForm
 {
     public partial class MoodTest : UserControl
     {
-
+        Timer err_timer = new Timer();
         public MoodTest()
         {
             InitializeComponent();
             axWindowsMediaPlayer1.currentMedia = axWindowsMediaPlayer1.newMedia(MusicList.getMusic());
             axWindowsMediaPlayer1.Ctlcontrols.play();
+            if (!System.IO.Directory.Exists(Application.StartupPath + @"\" + CurrentUser.currentUser["Username"]))
+            {
+                System.IO.Directory.CreateDirectory(Application.StartupPath + @"\" + CurrentUser.currentUser["Username"]);
+            }
+            string path = Application.StartupPath + @"\" + CurrentUser.currentUser["Username"] + @"\" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + ".txt";
+
+            StreamWriter sw1 = new StreamWriter(path, true);
+            sw1.WriteLine(MusicList.getPrevious());
+            sw1.WriteLine("");
+            sw1.Close();
+          
+            err_timer.Interval = 5000;
+            err_timer.Tick += err_timer_Tick;
+        }
+
+        private void err_timer_Tick(object sender, EventArgs e)
+        {
+            panel1.Dispose();
+            err_timer.Stop();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            axWindowsMediaPlayer1.Ctlcontrols.stop();
             Event.Step.LoopIndex = 1;
-            Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.USERINFO);
-            Event.Step.OnStepDone(this, sdea);
+            axWindowsMediaPlayer1.Ctlcontrols.stop();
+            
+           // Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.USERINFO);
+           // Event.Step.OnStepDone(this, sdea);
             
         }
 
@@ -89,17 +110,32 @@ namespace ClientForm
 
         private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
-            if (e.newState == 1)
+            try
             {
-                Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.NEXT);
-                Event.Step.OnStepDone(this, sdea);
+                if (e.newState == 1)
+                {
+                    moodStat1.Close();
+                    axClose();
+                    
+                    Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.QPAPER);
+                    Event.Step.OnStepDone(this, sdea);
+                }
             }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.ToString());
+            }
+
             
         }
-        public void axClose()
+        private void axClose()
         {
             axWindowsMediaPlayer1.Ctlcontrols.stop();
+            axWindowsMediaPlayer1.close();
+            axWindowsMediaPlayer1.Dispose();
+            
         }
+
 
 
 

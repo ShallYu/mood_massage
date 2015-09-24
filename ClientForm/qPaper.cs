@@ -34,6 +34,7 @@ namespace ClientForm
 
         public void querySave(string str)
         {
+            /*
             if (!System.IO.Directory.Exists(Application.StartupPath + @"\" + CurrentUser.currentUser["Username"]))
             {
                 System.IO.Directory.CreateDirectory(Application.StartupPath + @"\" + CurrentUser.currentUser["Username"]);
@@ -45,8 +46,9 @@ namespace ClientForm
                 sw1.WriteLine(str);
                 sw1.WriteLine("");
             sw1.Close();
+            */
 
-            Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.NEXT);
+            Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.USERINFO);
             Event.Step.OnStepDone(this, sdea);
         }
 
