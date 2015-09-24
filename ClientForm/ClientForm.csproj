@@ -104,6 +104,8 @@
     <Compile Include="Analyser.cs" />
     <Compile Include="CurrentUser.cs" />
     <Compile Include="dataSimulator.cs" />
+    <Compile Include="Event\dataRcvdEventArgs.cs" />
+    <Compile Include="Event\dataRcvd.cs" />
     <Compile Include="Event\Step.cs" />
     <Compile Include="Event\StepDoneEventArgs.cs" />
     <Compile Include="FFT.cs" />

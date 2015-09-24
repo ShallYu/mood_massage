@@ -12,7 +12,6 @@ namespace ClientForm
 {
     public partial class MoodStat : UserControl
     {
-        Timer draw_timer = new Timer();
         FFT fft1 = new FFT();
         dataSimulator ds1 = new dataSimulator();
         Object o;
@@ -20,22 +19,19 @@ namespace ClientForm
         public MoodStat()
         {
             InitializeComponent();
-            draw_timer.Interval = 900;
-            draw_timer.Tick += draw_timer_Tick;
             ds1.Connect("fh02");
-            draw_timer.Start();
+            Event.dataRcvd.Received += dataRcvd_Received;
         }
 
-        void draw_timer_Tick(object sender, EventArgs e)
+        void dataRcvd_Received(object serder, Event.dataRcvdEventArgs Args)
         {
-            o = ds1.ReadData(length);
+            o = (double[,])Args.data;
             if (o != null)
             {
                 double[,] a = (double[,])o;
                 double alpha = fft1.get_now_alpha(a, length, 27);
                 panel1.Width = (int)(this.Width * Math.Abs(12 - alpha) / 12);
             }
-            
         }
 
         private void MoodStat_Paint(object sender, PaintEventArgs e)
@@ -49,7 +45,6 @@ namespace ClientForm
         public void Close()
         {
             ds1.DisConnect();
-            draw_timer.Stop();
         }
 
     }

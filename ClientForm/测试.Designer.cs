@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.moodStat1 = new ClientForm.MoodStat();
+            this.waveDraw1 = new ClientForm.WaveDraw();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(574, 90);
+            this.label1.Location = new System.Drawing.Point(345, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 31);
             this.label1.TabIndex = 13;
@@ -82,7 +83,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label2.Location = new System.Drawing.Point(21, 94);
+            this.label2.Location = new System.Drawing.Point(21, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 31);
             this.label2.TabIndex = 14;
@@ -91,16 +92,25 @@
             // moodStat1
             // 
             this.moodStat1.BackColor = System.Drawing.Color.Black;
-            this.moodStat1.Location = new System.Drawing.Point(27, 137);
+            this.moodStat1.Location = new System.Drawing.Point(27, 128);
             this.moodStat1.Name = "moodStat1";
-            this.moodStat1.Size = new System.Drawing.Size(656, 52);
+            this.moodStat1.Size = new System.Drawing.Size(435, 39);
             this.moodStat1.TabIndex = 11;
+            // 
+            // waveDraw1
+            // 
+            this.waveDraw1.BackColor = System.Drawing.Color.Black;
+            this.waveDraw1.Location = new System.Drawing.Point(492, 38);
+            this.waveDraw1.Name = "waveDraw1";
+            this.waveDraw1.Size = new System.Drawing.Size(222, 170);
+            this.waveDraw1.TabIndex = 15;
             // 
             // MoodTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.waveDraw1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -123,5 +133,6 @@
         private MoodStat moodStat1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private WaveDraw waveDraw1;
     }
 }

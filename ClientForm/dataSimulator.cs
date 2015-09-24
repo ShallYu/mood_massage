@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
 
 namespace ClientForm
 {
     public class dataSimulator
     {
-      
-        FileStream f1;
-        StreamReader sr1;
+
+        private Timer timer = new Timer();
+        private int length = 900;
+        private FileStream f1;
+        private StreamReader sr1;
         private bool is_connected = false;
         public bool isConnected
         {
@@ -20,6 +23,18 @@ namespace ClientForm
         }
         public dataSimulator()
         {
+            timer.Interval = 900;
+            timer.Tick += timer_Tick;
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if (this.is_connected)
+            {
+                Event.dataRcvdEventArgs drea = new Event.dataRcvdEventArgs();
+                drea.data = this.ReadData(length);
+                Event.dataRcvd.OnReceived(this, drea);
+            }
         }
 
         public void Connect(String filename)
@@ -28,6 +43,7 @@ namespace ClientForm
             {
                 sr1 = new StreamReader(@"E:\Creating\EEG\matlab\2\" + filename + ".mat");
                 is_connected = true;
+                timer.Start();
             }
             catch (IOException e)
             {
@@ -38,6 +54,7 @@ namespace ClientForm
         {
             try
             {
+                timer.Stop();
                 //f1.Close();
                 sr1.Close();
                 is_connected = false;
@@ -46,7 +63,7 @@ namespace ClientForm
             {
             }
         }
-        public double[,] ReadData(int length)
+        private double[,] ReadData(int length)
         {
             try
             {
