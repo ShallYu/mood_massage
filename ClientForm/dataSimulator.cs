@@ -41,7 +41,7 @@ namespace ClientForm
         {
             try
             {
-                sr1 = new StreamReader(@"E:\Creating\EEG\matlab\2\" + filename + ".mat");
+                sr1 = new StreamReader(Application.StartupPath + @"\" + filename + ".mat");
                 is_connected = true;
                 timer.Start();
             }
