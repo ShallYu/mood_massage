@@ -87,7 +87,6 @@
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(435, 73);
             this.axWindowsMediaPlayer1.TabIndex = 16;
             this.axWindowsMediaPlayer1.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.axWindowsMediaPlayer1_PlayStateChange);
-
             // 
             // moodStat1
             // 
