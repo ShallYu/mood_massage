@@ -106,7 +106,6 @@
             this.likeBox.Name = "likeBox";
             this.likeBox.Size = new System.Drawing.Size(101, 26);
             this.likeBox.TabIndex = 29;
-            this.likeBox.UseSystemPasswordChar = true;
             // 
             // pwdBox
             // 
