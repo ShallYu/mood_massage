@@ -8,7 +8,7 @@ namespace ClientForm.Event
     class dataRcvdEventArgs
     {
         public double[,] data;
-        public int length = 2000;
+        public int length = 1500;
         public int total = 36;
     }
 }

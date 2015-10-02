@@ -10,7 +10,7 @@ namespace ClientForm
     {
 
         private Timer timer = new Timer();
-        private int length = 2000;
+        private int length = 1500;
         private FileStream f1;
         private StreamReader sr1;
         private bool is_connected = false;
@@ -23,7 +23,7 @@ namespace ClientForm
         }
         public dataSimulator()
         {
-            timer.Interval = 900;
+            timer.Interval = 2000;
             timer.Tick += timer_Tick;
         }
 
@@ -59,8 +59,9 @@ namespace ClientForm
                 sr1.Close();
                 is_connected = false;
             }
-            finally
+            catch (Exception e)
             {
+
             }
         }
         private double[,] ReadData(int length)
@@ -77,8 +78,10 @@ namespace ClientForm
             }
             catch (EndOfStreamException e)
             {
+                timer.Stop();
                 this.DisConnect();
                 this.Connect("fh02");
+                timer.Start();
                 return null;
             }
             catch(Exception e)

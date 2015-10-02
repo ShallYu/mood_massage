@@ -35,7 +35,7 @@ namespace ClientForm
 
         private void err_timer_Tick(object sender, EventArgs e)
         {
-            panel1.Dispose();
+            axWindowsMediaPlayer1.Ctlcontrols.stop();
             err_timer.Stop();
         }
 
@@ -110,13 +110,21 @@ namespace ClientForm
 
         private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
         {
+            statChange(e.newState);
+        }
+
+        private void statChange(int state)
+        {
             try
             {
-                if (e.newState == 1)
+                if (state == 8)
+                {
+                    axWindowsMediaPlayer1.Ctlcontrols.stop();
+                }
+                if (state == 1)
                 {
                     moodStat1.Close();
-                    axClose();
-                    
+                    axWindowsMediaPlayer1.Dispose();
                     Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.QPAPER);
                     Event.Step.OnStepDone(this, sdea);
                 }
@@ -125,15 +133,6 @@ namespace ClientForm
             {
                 MessageBox.Show(err.ToString());
             }
-
-            
-        }
-        private void axClose()
-        {
-            axWindowsMediaPlayer1.Ctlcontrols.stop();
-            axWindowsMediaPlayer1.close();
-            axWindowsMediaPlayer1.Dispose();
-            
         }
 
     }
