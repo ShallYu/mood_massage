@@ -29,20 +29,27 @@ namespace ClientForm
             sw1.WriteLine("");
             sw1.Close();
           
-            err_timer.Interval = 5000;
+            err_timer.Interval = 3000;
             err_timer.Tick += err_timer_Tick;
+            err_timer.Start();
         }
 
         private void err_timer_Tick(object sender, EventArgs e)
         {
-            axWindowsMediaPlayer1.Ctlcontrols.stop();
-            err_timer.Stop();
+           
+            if (!axWindowsMediaPlayer1.IsDisposed && axWindowsMediaPlayer1.playState == WMPLib.WMPPlayState.wmppsStopped)
+            {
+                err_timer.Stop();
+                Event.Step.LoopIndex = 1;
+                statChange();
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Event.Step.LoopIndex = 1;
-            axWindowsMediaPlayer1.Ctlcontrols.stop();
+            statChange();
             
            // Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.USERINFO);
            // Event.Step.OnStepDone(this, sdea);
@@ -108,26 +115,14 @@ namespace ClientForm
             return Gamma_E;
         }
 
-        private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
-        {
-            statChange(e.newState);
-        }
-
-        private void statChange(int state)
+        private void statChange()
         {
             try
             {
-                if (state == 8)
-                {
-                    axWindowsMediaPlayer1.Ctlcontrols.stop();
-                }
-                if (state == 1)
-                {
-                    moodStat1.Close();
-                    axWindowsMediaPlayer1.Dispose();
+             moodStat1.Close();
+                    axWindowsMediaPlayer1.close();
                     Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.QPAPER);
                     Event.Step.OnStepDone(this, sdea);
-                }
             }
             catch (Exception err)
             {
