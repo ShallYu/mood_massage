@@ -103,10 +103,19 @@ namespace ClientForm
             Point[] p1 = new Point[arr.Length];
             for (int i = 0; i < arr.Length; i++)
             {
-                p1[i].X = i*panel1.Width/arr.Length;
-                p1[i].Y = panel1.Height-(int)(arr[i]*panel1.Height/36);
+                if (arr[i] != 0)
+                {
+                    p1[i].X = i * panel1.Width / arr.Length;
+                    p1[i].Y = panel1.Height - (int)(arr[i] * panel1.Height / 120);
+                }
+                else
+                {
+                    p1[i].X = i * panel1.Width / arr.Length;
+                    p1[i].Y = panel1.Height / 2;
+                }
             }
-            label1.Text += String.Format("{0}", panel1.Height - (int)(arr[index] * panel1.Height / 36));
+            label1.Text += String.Format("{0}", panel1.Height - (int)(arr[index] * panel1.Height / 120));
+            DrawGrid(g);
             gPath1.AddCurve(p1);
             g.DrawPath(wavePen, gPath1);
 
