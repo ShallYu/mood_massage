@@ -9,6 +9,7 @@ namespace ClientForm.Event
     {
         public double[,] data;
         public int length = 1500;
-        public int total = 36;
+        public int total_alpha = 50;
+        public int total_beta = 20;
     }
 }

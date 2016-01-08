@@ -11,19 +11,42 @@ namespace ClientForm
 {
     public partial class MoodVector : UserControl
     {
-        //dataSimulator s1 = new dataSimulator();
+        FFT fft1 = new FFT();
+        Point last_point = new Point(0,0);
+        Point now_point = new Point(0, 0);
+        Graphics g;
         public MoodVector()
         {
             InitializeComponent();
+            g = panel1.CreateGraphics();
+            last_point = new Point(panel1.Width / 2, panel1.Height / 2);
+            now_point = new Point(panel1.Width / 2, panel1.Height / 2);
             setPanelBG();
+            Event.dataRcvd.Received += dataRcvd_Received;
 
+        }
+
+        void dataRcvd_Received(object serder, Event.dataRcvdEventArgs data)
+        {
+            double alpha = fft1.get_now_alpha(data.data, data.length, 27);
+            double beta = fft1.get_now_beta(data.data, data.length, 27);
+            if (alpha <= data.total_alpha && beta <= data.total_beta)
+            {
+                last_point = now_point;
+                now_point.X = (int)(alpha * this.Width / data.total_alpha);
+                now_point.Y = (int)(this.Width - beta * this.Width / data.total_beta);
+            }
+            g = panel1.CreateGraphics();
+            g.DrawPie(new Pen(Color.Red), now_point.X - 5, now_point.Y - 5, 10, 10, 0, 360);
+            g.DrawLine(new Pen(Color.Cyan), last_point, now_point);
+            
         }
 
         private void setPanelBG()
         {
             Bitmap panelBG = new Bitmap(panel1.Width, panel1.Height);
-            Graphics g = Graphics.FromImage(panelBG);
-            g.FillRectangle(Brushes.Black, new Rectangle(0, 0, this.Width, this.Height));
+            Graphics g_bg = Graphics.FromImage(panelBG);
+            g_bg.FillRectangle(Brushes.Black, new Rectangle(0, 0, this.Width, this.Height));
             Pen linePen = new Pen(Color.Yellow);
             g.DrawLine(linePen, new Point(0, this.Height / 2), new Point(this.Width, this.Height / 2));
             g.DrawLine(linePen, new Point(this.Width / 2, 0), new Point(this.Width / 2, this.Height));
@@ -31,26 +54,10 @@ namespace ClientForm
             g.DrawString("β", DefaultFont, Brushes.White, new PointF(this.Width/2 +2, 2));
             panel1.BackgroundImage = panelBG;
         }
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        public void clear_event()
         {
-
-          
-            Graphics g = e.Graphics;
-            g.DrawPie(new Pen(Color.White), nowPoint[0] * this.Width / 2000, nowPoint[1] * this.Height / 2000, 10, 10, 0, 360);
-            g.DrawPie(new Pen(Color.Red), targetPoint[0] * this.Width /2000, targetPoint[1] * this.Height / 2000, 10, 10, 0, 360);
+            Event.dataRcvd.Received -= dataRcvd_Received;
         }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            panel1.Refresh();
-        }
-
-        public int[] nowPoint = new int[2];
-
-        public int[] targetPoint = new int[2];
-
         internal void refresh()
         {
             panel1.Refresh();

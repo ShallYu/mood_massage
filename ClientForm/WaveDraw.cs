@@ -23,12 +23,6 @@ namespace ClientForm
         int index = 0;
         Graphics panel_g;
 
-        SerialPort sp = null;
-        Parser parser = new Parser();
-
-        float[] buffer = new float[5000];//缓冲区
-        int num = 0;//缓冲区数据计数
-
        
         public WaveDraw()
         {

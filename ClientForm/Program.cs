@@ -16,6 +16,8 @@ namespace ClientForm
             Application.SetCompatibleTextRenderingDefault(false);
             Form1 f1 = new Form1();
             Application.Run(f1);
+            //Form2 f2 = new Form2();
+            //Application.Run(f2);
         }
     }
 }

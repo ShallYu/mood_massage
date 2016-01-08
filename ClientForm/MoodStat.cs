@@ -29,7 +29,7 @@ namespace ClientForm
             {
                 double[,] a = (double[,])o;
                 double alpha = fft1.get_now_alpha(a, Args.length, 27);
-                panel1.Height = (int)(this.Height * Math.Abs(Args.total - alpha) / Args.total);
+                panel1.Height = (int)(this.Height * Math.Abs(Args.total_alpha - alpha) / Args.total_alpha);
             }
         }
 

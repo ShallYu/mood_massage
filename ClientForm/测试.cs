@@ -119,8 +119,10 @@ namespace ClientForm
         {
             try
             {
-             moodStat1.Close();
+                    moodStat1.Close();
                     axWindowsMediaPlayer1.close();
+                    moodVector1.clear_event();
+                    brainGraph1.clear_event();
                     Event.StepDoneEventArgs sdea = new Event.StepDoneEventArgs(Event.Step.StepEnum.QPAPER);
                     Event.Step.OnStepDone(this, sdea);
             }

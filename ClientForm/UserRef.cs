@@ -11,9 +11,13 @@ namespace ClientForm
 {
     public partial class UserRef : UserControl
     {
+        string[] mood = { "积极", "消极" };
         public UserRef()
         {
+            Random r1 = new Random();
+            int i = r1.Next(2);
             InitializeComponent();
+            label2.Text = mood[i];
         }
 
         private void button1_Click(object sender, EventArgs e)

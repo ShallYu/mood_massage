@@ -56,6 +56,21 @@ namespace ClientForm
                 double[] amp=F_Amp(xreal, ximag);
                 return Alpha_Energy(amp);
         }
+        public double get_now_beta(double[,] data, int length, int port)
+        {
+
+            double[] xreal = new double[length];
+            for (int i = 0; i < length; i++)
+            {
+                xreal[i] = data[port, i];
+            }
+            double[] ximag = new double[xreal.Length];
+            xreal.CopyTo(ximag, 0);
+
+            fft_T(ref xreal, ref ximag);
+            double[] amp = F_Amp(xreal, ximag);
+            return Beta_Energy(amp);
+        }
         public double[][] fft_T(ref double[] xreal, ref double[] ximag)
         {
             //n值为2的N次方

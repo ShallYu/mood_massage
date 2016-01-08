@@ -28,23 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.waveDraw1 = new ClientForm.WaveDraw();
             this.SuspendLayout();
-            // 
-            // waveDraw1
-            // 
-            this.waveDraw1.BackColor = System.Drawing.Color.Black;
-            this.waveDraw1.Location = new System.Drawing.Point(60, 39);
-            this.waveDraw1.Name = "waveDraw1";
-            this.waveDraw1.Size = new System.Drawing.Size(442, 170);
-            this.waveDraw1.TabIndex = 0;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 261);
-            this.Controls.Add(this.waveDraw1);
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -53,7 +43,6 @@
 
         #endregion
 
-        private WaveDraw waveDraw1;
 
 
     }
